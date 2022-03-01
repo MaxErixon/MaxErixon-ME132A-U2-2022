@@ -69,18 +69,18 @@ function renderStadiums(stadiums) {
     let stadiumsElement = document.getElementById("stadiums");
     stadiumsElement.innerHTML = "";
 
-    // Go through all dogs and insert their HTML
+    
     for (let stadium of stadiumDatabase) {
-        let stadiumElement = renderstadium(stadium);
+        let stadiumElement = renderStadium(stadium);
         stadiumsElement.appendChild(stadiumElement);
     }
-    // Add remove-handlers for our dogs
+
     setRemoveStadiumHandlers();
 }
 
 
 function onAddStadiumSubmit(event) {
-    // Prevent the form from sending us to a new page
+    
     event.preventDefault();
 
     let name = document.getElementById("name").value;
@@ -90,13 +90,69 @@ function onAddStadiumSubmit(event) {
 
     let stadium = createNewStadium(name, team, city, capacity);
 
-    // Calculate the newly created dogs ID
+    
     stadium.id = stadiumDatabase[stadiumDatabase.length - 1].id + 1;
 
     addStadiumToDatabase(stadiumDatabase, stadium)
     renderStadiums(stadiumDatabase);
 
-    // Reset (empty) all form fields
+    
     let form = document.getElementById("add-stadium-form");
     form.reset();
 }
+
+function setAddStadiumHandler() {
+    let form = document.getElementById("add-stadium-form");
+    form.addEventListener("submit", onAddStadiumSubmit);
+}
+
+function onRemoveStadiumClick(event) {
+    let button = event.target;
+    let id = button.parentElement.id;
+   
+    removeStadiumById(stadiumDatabase, id);
+    
+    renderStadiums(stadiumDatabase);
+}
+
+function setRemoveStadiumHandlers() {
+    let buttons = document.querySelectorAll(".stadium button");
+
+    for (let button of buttons) {
+        button.addEventListener("click", onRemoveStadiumClick);
+    }
+}
+
+function onFilterByCitySubmit(event) {
+    event.preventDefault();
+    let city = document.getElementById("filter-city").value;
+    let stadiums = getStadiumbyCity(stadiumDatabase, city);
+    renderStadiums(stadiums);
+}
+
+function onFilterByCapacitySubmit(event) {
+    event.preventDefault();
+    let capacity = document.getElementById("filter-capacity").value;
+    let stadiums = getStadiumbyCapacity(stadiumDatabase, capacity);
+    renderStadiums(stadiums);
+}
+
+function onShowAllClick() {
+    document.getElementById("filter-city").value = "";
+    document.getElementById("filter-capacity").value = "";
+    renderStadiums(stadiumDatabase);
+}
+
+function setFilterStadiumHandlers() {
+    let cityForm = document.getElementById("filter-by-city");
+    let capacityForm = document.getElementById("filter-by-capacity");
+    let showAll = document.getElementById("show-all");
+
+    cityForm.addEventListener("submit", onFilterByCitySubmit);
+    capacityForm.addEventListener("submit", onFilterByCapacitySubmit);
+    showAll.addEventListener("click", onShowAllClick);
+}
+
+renderStadiums(stadiumDatabase);
+setAddStadiumHandler();
+setFilterStadiumHandlers();
