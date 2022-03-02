@@ -15,7 +15,7 @@ function addNewStadiumToDatabase(stadiumDatabase, stadium) {
     stadiumDatabase.push(stadium);
 }
 
-function removeStadiumById(stadiums) {
+function removeStadiumById(stadiumDatabase, id) {
     for ( let i = 0; i < stadiumDatabase.length; i++){
         let stadium = stadiumDatabase[i];
         if (stadium.id == id){
@@ -26,11 +26,11 @@ function removeStadiumById(stadiums) {
     
 }
 
-function getStadiumbyCity(stadiumDatabase, city) {
+function getStadiumByCity(stadiumDatabase, city) {
     let stadiumByCity= [];
 
     for (let stadium of stadiumDatabase) {
-        if (stadium.city.toLowerCase() == city.toLowerCase()) {
+        if (stadium.city == city) {
             stadiumByCity.push(stadium);
         }
     }
@@ -38,7 +38,7 @@ function getStadiumbyCity(stadiumDatabase, city) {
     return stadiumByCity;
 }
 
-function getStadiumbyCapacity(stadiumDatabase, capacity) {
+function getStadiumByCapacity(stadiumDatabase, capacity) {
     let stadiumbyCapacity= [];
 
     for (let stadium of stadiumDatabase) {
@@ -56,16 +56,18 @@ function renderStadium(stadium) {
     div.id = stadium.id;
 
     div.innerHTML = `
-        <div>${stadium.name}</div>
-        <div>${stadium.breed}</div>
-        <div>${stadium.age}</div>
+        
+        <li>${stadium.name}</li>
+        <div>${stadium.team}</div>
+        <div>${stadium.city}</div>
+        <div>${stadium.capacity}</div>
         <button type="button">Remove</button>
     `;
 
     return div;
 }
 
-function renderStadiums(stadiums) {
+function renderStadiums(stadiumDatabase) {
     let stadiumsElement = document.getElementById("stadiums");
     stadiumsElement.innerHTML = "";
 
@@ -93,7 +95,7 @@ function onAddStadiumSubmit(event) {
     
     stadium.id = stadiumDatabase[stadiumDatabase.length - 1].id + 1;
 
-    addStadiumToDatabase(stadiumDatabase, stadium)
+    addNewStadiumToDatabase(stadiumDatabase, stadium)
     renderStadiums(stadiumDatabase);
 
     
@@ -126,14 +128,14 @@ function setRemoveStadiumHandlers() {
 function onFilterByCitySubmit(event) {
     event.preventDefault();
     let city = document.getElementById("filter-city").value;
-    let stadiums = getStadiumbyCity(stadiumDatabase, city);
+    let stadiums = getStadiumByCity(stadiumDatabase, city);
     renderStadiums(stadiums);
 }
 
 function onFilterByCapacitySubmit(event) {
     event.preventDefault();
     let capacity = document.getElementById("filter-capacity").value;
-    let stadiums = getStadiumbyCapacity(stadiumDatabase, capacity);
+    let stadiums = getStadiumByCapacity(stadiumDatabase, capacity);
     renderStadiums(stadiums);
 }
 

@@ -1,0 +1,87 @@
+body {
+    margin: 0 auto;
+    font-family: Courier;
+    width: 80vw;
+    background-image: url(timothy-tan-PAe2UhGo-S4-unsplash.jpg);
+    background-size: cover;
+    margin-top: 150px;
+    height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    
+  }
+  
+  #add-stadium-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    
+  }
+  
+  #filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  
+  #filter-by-city,
+  #filter-by-capacity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+  
+  #headers {
+    padding: 10px 20px;
+    
+    background: wheat;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  #headers div {
+      margin-left: 40px;
+  }
+
+  #headers div:nth-child(4){
+      margin-left: 0px;
+  }
+  
+  #stadiums {
+    background: green;
+    
+  }
+  
+  
+  .stadium {
+    padding: 20px;
+    padding-left: 0px;
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: solid 1px black;
+  }
+  
+  .stadium div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stadium:nth-child(odd) {
+    background: lightgreen;
+    border: solid 1px black;
+  }
+
+  ol{
+     border: solid 1px white;
+  }
+
+ 
+  
