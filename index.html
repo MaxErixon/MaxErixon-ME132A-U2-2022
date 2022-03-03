@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>U2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>Stadium database</h1>
 
     <form id="add-stadium-form">
-        <input id="name" type="text" placeholder="Name">
-        <input id="team" type="text" placeholder="Team">
-        <input id="city" type="text" placeholder="City">
-        <input id="capacity" type="number" placeholder="Capacity">
-        <button>Add</button>
+      <input id="name" type="text" placeholder="Name" />
+      <input id="team" type="text" placeholder="Team" />
+      <input id="city" type="text" placeholder="City" />
+      <input id="capacity" type="number" placeholder="Capacity" />
+      <button>Add</button>
+     
+      
     </form>
 
+    
+
     <div id="filters">
-        <form id="filter-by-city">
-            <input id="filter-city" type="text" placeholder="Filter by city">
-            <button>Filter</button>
-        </form>
+      <form id="filter-by-city">
+        <input id="filter-city" type="text" placeholder="Filter by city" />
+        <button>Filter</button>
+      </form>
 
-        <form id="filter-by-capacity">
-            <input id="filter-capacity" type="number" placeholder="Filter by capacity">
-            <button>Filter</button>
-        </form>
+      <form id="filter-by-capacity">
+        <input
+          id="filter-capacity"
+          type="number"
+          placeholder="Filter by capacity"
+        />
+        <button>Filter</button>
+      </form>
 
-        <button id="show-all" type="button">Show all</button>
+      <button id="show-all" type="button">Show all</button>
     </div>
 
     <div id="headers">
-        <div>Name</div>
-        <div>Team</div>
-        <div>City</div>
-        <div>Capacity</div>
+      <div>Name</div>
+      <div>Team</div>
+      <div>City</div>
+      <div>Capacity</div>
     </div>
-    
-        
-        <ol type="1" id="stadiums"></ol>
+
+    <ol id="stadiums"></ol>
     
 
-
-    
-    <script src= "database.js"></script>
-    <script src= "index.js"></script>
-    
-</body>
+    <script src="database.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

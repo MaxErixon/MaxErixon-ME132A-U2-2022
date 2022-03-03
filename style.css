@@ -9,10 +9,14 @@ body {
   }
   
   h1 {
+    font-family: 'Sucrose Bold Two';
+    font-size: 7vw;
     text-align: center;
     color: white;
-    background-color: black;
-    padding: 20px;
+  text-decoration: underline white;
+    padding-top: 40px;
+    
+    
     
   }
   
@@ -47,7 +51,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
   }
   #headers div {
-      margin-left: 40px;
+      margin-left: 0px;
   }
 
   #headers div:nth-child(4){
@@ -56,6 +60,9 @@ body {
   
   #stadiums {
     background: green;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 70px;
     
   }
   
@@ -66,22 +73,44 @@ body {
     margin-top: 0px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    border: solid 1px black;
+   
   }
   
   .stadium div {
     display: flex;
     align-items: center;
+
   }
   
   .stadium:nth-child(odd) {
     background: lightgreen;
-    border: solid 1px black;
+   
   }
 
   ol{
-     border: solid 1px white;
+  
   }
 
  
+  li{
+      margin-left: 10px;
+  }
+
+  ol { 
+    counter-reset: item;
+    list-style-type: none;
+}
+li { display: block; }
+li:before { 
+    content: counter(item) "  "; 
+    counter-increment: item 
+}
+
+
   
+  @font-face {
+		font-family: 'Sucrose Bold Two';
+		src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sucrose.woff2') format('woff2');
+		}
+
+

@@ -40,5 +40,33 @@ let stadiumDatabase = [
         team: "Olympiqe de Marseille",
         city: "Marseille",
         capacity: 67000
+    },
+    {
+        id: 7,
+        name: "Emirates Stadium",
+        team: "Arsenal",
+        city: "London",
+        capacity: 64000
+    },
+    {
+        id: 8,
+        name: "Iberostar Stadium",
+        team: "RCD Mallorca",
+        city: "Palma",
+        capacity: 23000
+    },
+    {
+        id: 9,
+        name: "Estadio Ramón Sánchez Pizjuán",
+        team: "Sevilla FC",
+        city: "Sevilla",
+        capacity: 43000
+    },
+    {
+        id: 10,
+        name: "Mestalla",
+        team: "Valencia CF",
+        city: "Valencia",
+        capacity: 55000
     }
 ];
