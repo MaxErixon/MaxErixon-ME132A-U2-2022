@@ -57,7 +57,7 @@ let stadiumDatabase = [
     },
     {
         id: 9,
-        name: "Estadio Ramón Sánchez Pizjuán",
+        name: "Ramón Sánchez Pizjuán",
         team: "Sevilla FC",
         city: "Sevilla",
         capacity: 43000
