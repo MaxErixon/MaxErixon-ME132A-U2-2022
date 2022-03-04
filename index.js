@@ -1,5 +1,6 @@
 "use strict";
 
+// Creates a new stadium with 4 parameters
 function createNewStadium(name, team, city, capacity) {
   let stadium = {
     name: name,
@@ -10,10 +11,12 @@ function createNewStadium(name, team, city, capacity) {
   return stadium;
 }
 
+// Adds new stadium to the database of stadiums
 function addNewStadiumToDatabase(stadiumDatabase, stadium) {
   stadiumDatabase.push(stadium);
 }
 
+// Removes a stadium based on it´s id 
 function removeStadiumById(stadiumDatabase, id) {
   for (let i = 0; i < stadiumDatabase.length; i++) {
     let stadium = stadiumDatabase[i];
@@ -24,6 +27,7 @@ function removeStadiumById(stadiumDatabase, id) {
   }
 }
 
+// Return stadium based on city
 function getStadiumByCity(stadiumDatabase, city) {
   let stadiumByCity = [];
 
@@ -36,6 +40,7 @@ function getStadiumByCity(stadiumDatabase, city) {
   return stadiumByCity;
 }
 
+// Return stadium based on capacity
 function getStadiumByCapacity(stadiumDatabase, capacity) {
   let stadiumbyCapacity = [];
 
@@ -48,6 +53,7 @@ function getStadiumByCapacity(stadiumDatabase, capacity) {
   return stadiumbyCapacity;
 }
 
+// Creates a div with our new stadium and it´s values, and the div is given the class "stadium"
 function renderStadium(stadium) {
   let div = document.createElement("div");
   div.classList.add("stadium");
@@ -65,6 +71,7 @@ function renderStadium(stadium) {
   return div;
 }
 
+// Renders an array of the stadiums into our HTML
 function renderStadiums(stadiumDatabase) {
   let stadiumsElement = document.getElementById("stadiums");
   stadiumsElement.innerHTML = "";
@@ -77,6 +84,7 @@ function renderStadiums(stadiumDatabase) {
   setRemoveStadiumHandlers();
 }
 
+// Manages our form with submitting, preventing from sending us to a new page and emptying the input fields
 function onAddStadiumSubmit(event) {
   event.preventDefault();
 
@@ -87,6 +95,7 @@ function onAddStadiumSubmit(event) {
 
   let stadium = createNewStadium(name, team, city, capacity);
 
+// Using "if" to return a alert if any of the input fields are missing info
   if (name == "") {
     return alert("You have to provide all the info ");
   } else if (team == "") {
@@ -106,15 +115,18 @@ function onAddStadiumSubmit(event) {
   form.reset();
 }
 
+// Adding eventlistener to our adding button
 function setAddStadiumHandler() {
   let form = document.getElementById("add-stadium-form");
   form.addEventListener("submit", onAddStadiumSubmit);
 }
 
+// Function for when remove-button is clicked
 function onRemoveStadiumClick(event) {
   let button = event.target;
   let id = button.parentElement.id;
 
+    // Using "if" to return a confirm function to make sure the user really wants to delete a object
   if (confirm("Are you sure you want to delete the stadium?") == true) {
     removeStadiumById(stadiumDatabase, id);
   } else return false;
@@ -122,6 +134,7 @@ function onRemoveStadiumClick(event) {
   renderStadiums(stadiumDatabase);
 }
 
+// Adding eventlistener to the remove-buttons
 function setRemoveStadiumHandlers() {
   let buttons = document.querySelectorAll(".stadium button");
 
@@ -130,6 +143,7 @@ function setRemoveStadiumHandlers() {
   }
 }
 
+// Filter stadiums by city
 function onFilterByCitySubmit(event) {
   event.preventDefault();
   let city = document.getElementById("filter-city").value;
@@ -137,6 +151,7 @@ function onFilterByCitySubmit(event) {
   renderStadiums(stadiums);
 }
 
+// Filter stadiums by capacity
 function onFilterByCapacitySubmit(event) {
   event.preventDefault();
   let capacity = document.getElementById("filter-capacity").value;
@@ -144,12 +159,14 @@ function onFilterByCapacitySubmit(event) {
   renderStadiums(stadiums);
 }
 
+// Show all objects after using a filter 
 function onShowAllClick() {
   document.getElementById("filter-city").value = "";
   document.getElementById("filter-capacity").value = "";
   renderStadiums(stadiumDatabase);
 }
 
+// Adding eventlistener to the filter and "show all" button
 function setFilterStadiumHandlers() {
   let cityForm = document.getElementById("filter-by-city");
   let capacityForm = document.getElementById("filter-by-capacity");
@@ -161,16 +178,7 @@ function setFilterStadiumHandlers() {
 }
 
 
-
-  function btn() {
-     let knapp = document.getElementById("btn");
-     knapp.addEventListener("click", function play() {
-        var audio = document.getElementById("audio");
-        audio.play();
-     })
-
-  }
-
+// Direct code for the page to be properly loaded
 renderStadiums(stadiumDatabase);
 setAddStadiumHandler();
 setFilterStadiumHandlers();
