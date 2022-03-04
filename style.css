@@ -77,7 +77,6 @@ h1 {
   margin-top: 0px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
- 
 }
 
 .stadium div {
@@ -86,12 +85,7 @@ h1 {
 }
 
 .stadium:nth-child(odd) {
- background-color: lightgreen;
-   
-  }
-
-li {
-  margin-left: 10px;
+  background-color: lightgreen;
 }
 
 ol {
@@ -99,6 +93,7 @@ ol {
   list-style-type: none;
 }
 li {
+  margin-left: 10px;
   display: block;
 }
 li:before {
@@ -146,7 +141,7 @@ button:hover:after {
 }
 
 input {
-  font-family: "Sucrose Bold Two";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
   display: block;
   width: 100%;

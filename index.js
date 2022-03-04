@@ -16,7 +16,7 @@ function addNewStadiumToDatabase(stadiumDatabase, stadium) {
   stadiumDatabase.push(stadium);
 }
 
-// Removes a stadium based on it´s id 
+// Removes a stadium based on it´s id
 function removeStadiumById(stadiumDatabase, id) {
   for (let i = 0; i < stadiumDatabase.length; i++) {
     let stadium = stadiumDatabase[i];
@@ -32,7 +32,7 @@ function getStadiumByCity(stadiumDatabase, city) {
   let stadiumByCity = [];
 
   for (let stadium of stadiumDatabase) {
-    if (stadium.city == city) {
+    if (stadium.city.toLowerCase() == city.toLowerCase()) {
       stadiumByCity.push(stadium);
     }
   }
@@ -95,7 +95,7 @@ function onAddStadiumSubmit(event) {
 
   let stadium = createNewStadium(name, team, city, capacity);
 
-// Using "if" to return a alert if any of the input fields are missing info
+  // Using "if" to return a alert if any of the input fields are missing info
   if (name == "") {
     return alert("You have to provide all the info ");
   } else if (team == "") {
@@ -126,7 +126,7 @@ function onRemoveStadiumClick(event) {
   let button = event.target;
   let id = button.parentElement.id;
 
-    // Using "if" to return a confirm function to make sure the user really wants to delete a object
+  // Using "if" to return a confirm function to make sure the user really wants to delete a object
   if (confirm("Are you sure you want to delete the stadium?") == true) {
     removeStadiumById(stadiumDatabase, id);
   } else return false;
@@ -159,7 +159,7 @@ function onFilterByCapacitySubmit(event) {
   renderStadiums(stadiums);
 }
 
-// Show all objects after using a filter 
+// Show all objects after using a filter
 function onShowAllClick() {
   document.getElementById("filter-city").value = "";
   document.getElementById("filter-capacity").value = "";
@@ -176,7 +176,6 @@ function setFilterStadiumHandlers() {
   capacityForm.addEventListener("submit", onFilterByCapacitySubmit);
   showAll.addEventListener("click", onShowAllClick);
 }
-
 
 // Direct code for the page to be properly loaded
 renderStadiums(stadiumDatabase);
