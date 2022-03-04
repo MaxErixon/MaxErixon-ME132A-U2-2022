@@ -1,5 +1,8 @@
 "use strict";
 
+// Github link:
+// https://github.com/MaxErixon/MaxErixon-ME132A-U2-2022
+
 // Creates a new stadium with 4 parameters
 function createNewStadium(name, team, city, capacity) {
   let stadium = {
